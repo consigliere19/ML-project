@@ -13,10 +13,7 @@ def find_centroids(X_train, y_train):
     classes = {}
     centroids = []
     for i in range(len(y_train)):
-        if y_train[i] in classes.keys():
-            classes[y_train[i]].append(X_train[i])
-        else:
-            classes[y_train[i]] = [X_train[i]]
+        classes[y_train[i]].append(X_train[i])
     for class_label in classes.keys():
         points = classes[class_label]
         centroid = np.mean(points, axis=0)
