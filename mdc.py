@@ -21,6 +21,7 @@ def find_centroids(X_train, y_train):
     return centroids
 
 
+
 def predict(X, centroids):
     distances = []
     min_dist = float('inf')
