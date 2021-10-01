@@ -1,4 +1,5 @@
 import math
+from collectionis import Counter
 
 
 
@@ -17,10 +18,8 @@ def predict(X_train, y_train, query, n_neighbors):
     sorted_distances = sorted(distances)
     k_nearest = sorted_distances[:n_neighbors]
     k_nearest_labels = [y_train[i] for distance, i in k_nearest]
-    most_freq = 0
-    for temp in k_nearest_labels:
-        if temp > most_freq:
-            most_freq = temp
+    
+    return Counter(k_nearest_labels).most_common(1)[0][0]
 
 
 def knn_classifier(X_train, y_train, X_test, n_neighbors):
