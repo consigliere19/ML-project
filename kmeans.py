@@ -29,6 +29,13 @@ def find_centroids(dataset, clusters):
 
     return centroids
 
+    def check_equal(arr1, arr2):
+        eps = 0.000001
+        for i in range(len(arr1)):
+            for j in range(len(arr1[i])):
+                if math.abs(arr1[i][j] - arr2[i][j]) > eps:
+                    return False
+        return True
 
 
 
@@ -44,6 +51,10 @@ def k_means_clustering(dataset, k):
         for idx, point in enumerate(dataset):
             distances = []
 
+             if check_equal(centroids, prev_centroids):
+                break
+
+            
             for centroid_idx, centroid in enumerate(centroids):
                 distances.append((euclidean_distance(point, centroid), centroid_idx))
             sorted_distances = sorted(distances)
