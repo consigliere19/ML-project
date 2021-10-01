@@ -2,7 +2,7 @@ import math
 import random
 
 import numpy as np
-
+from matplotlib import pyplot as plt
 
 def euclidean_distance(sample1, sample2):
     distance = 0
@@ -61,6 +61,8 @@ def k_means_clustering(dataset, k):
             nearest_centroid = sorted_distances[0]
             nearest_centroid_cluster = nearest_centroid[1]
             clusters.append(nearest_centroid_cluster)
+            plt.scatter(dataset[:, 0], dataset[:, 1], c=clusters, cmap='rainbow')
+            plt.show()
 
         centroids = find_centroids(dataset, clusters)
         print("CLUSTERS", clusters)
