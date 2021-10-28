@@ -44,8 +44,8 @@ def k_means_clustering(dataset, k):
     n = dataset.shape[1]
     centroids = dataset[random.sample(range(m), k,)]
     n_iter = 10
-    clusters = []
     for iter in range(n_iter):
+        clusters = []
         print(centroids)
         prev_centroids = centroids.copy()
         for idx, point in enumerate(dataset):
